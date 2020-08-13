@@ -9,10 +9,58 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var numericInput = ""
+    @State private var numericOutput = ""
+    var heat = ["Cup", "Pint", "Barrel"]
+    @State private var aInput = 0
+    @State private var aOutput = 0
+    
+    var same: Int  {
+        if aInput == aOutput {
+            return aInput
+        }
+        return 0
+    }
+    let lowestDenom: [Int] = [236, 473, 158987]
+    
+    func getDenoms(lowestDenom: Int) -> Int{
+        return lowestDenom
+    }
+    
+    var outcome: Int {
+        return lowestDenom[aInput] / lowestDenom[aOutput]
+    }
+
+    
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            Form {
+                Section(header: Text("Input: ")){
+                    Picker("Amount",selection: $aInput) {
+                        ForEach(0 ..< heat.count) {
+                            Text(self.heat[$0])
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+                    TextField("How many?", text: $numericInput)
+                }
+                
+                Section(header: Text("Output: ")){
+                    Picker("Amount",selection: $aOutput) {
+                        ForEach(0 ..< heat.count) {
+                            Text(self.heat[$0])
+                        }
+                    }.pickerStyle(SegmentedPickerStyle())
+
+                    Text("Outcome: \(outcome)")
+
+                }
+            }.navigationBarTitle("Conversion Challenge")
+        }
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
