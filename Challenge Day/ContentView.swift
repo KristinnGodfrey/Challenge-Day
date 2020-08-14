@@ -28,7 +28,10 @@ struct ContentView: View {
     }
     
     var outcome: Int {
-        return lowestDenom[aInput] / lowestDenom[aOutput]
+        if aInput == aOutput {
+            return 1
+        }
+        return (lowestDenom[aInput] / lowestDenom[aOutput]) * (Int(numericInput) ?? 0)
     }
 
     
@@ -52,10 +55,10 @@ struct ContentView: View {
                         }
                     }.pickerStyle(SegmentedPickerStyle())
 
-                    Text("Outcome: \(outcome)")
+                    Text("Output: \(outcome)")
 
                 }
-            }.navigationBarTitle("Conversion Challenge")
+            }.navigationBarTitle("Conversion")
         }
     }
 }
