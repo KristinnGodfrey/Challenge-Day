@@ -1,7 +1,7 @@
 # Challenge-Day
 
 ## Project Details
-This is my second Swift project, code can be found in [ContentView.swift](https://github.com/KristinnGodfrey/WeSplit/blob/master/Conversion/ContentView.swift)
+This is my second Swift project, code can be found in [ContentView.swift](https://github.com/KristinnGodfrey/WeSplit/blob/master/Challenge-Day/ContentView.swift)
 
 ## Simulator
 <p align="left">
